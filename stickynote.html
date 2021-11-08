@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <style>
 /* HTML page
@@ -13,7 +14,9 @@
 when "go" button is clicked user input moves to "sticky note"
 
 CSS
--div, flex wrap, div inserted when "go" pressed */
+-div, flex wrap, div inserted when "go" pressed 
+get .length of stickytext string
+adjust font size dependent on length*/
 
 .container{
 background-color: darkorchid;
@@ -22,13 +25,18 @@ flex-flow: row wrap;
 }
 
 .note{
-width: 100px;
-height: 100px;
-font-size: 2vw;
+width: 20em;
+height: 20em;
 background-color: #FFFF88;
 border: 1px solid black;
-text-align: center;
-line-height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.note span{
+font-size: 50%;
+
 }
 
 </style>
@@ -54,9 +62,11 @@ Write your sticky note text here!
 function makesticky(){                                                  //sets up makesticky function
     var stickytext = document.getElementById("sticky").value;          //gets text from user input
     let div = document.createElement("div");                    //creates <p>, sets it as variable p
-    div.className = "note";
-    let content = document.createTextNode(stickytext);              //makes a textnode of usertext as variable 'content'
-    div.appendChild(content);                                         //appendChild puts content inside of p (between p tags)
+    var newHTML = `<span>${stickytext}</span>`;                     // could be done on one line
+    div.className = "note";                                         //
+       
+    div.innerHTML+= newHTML;                                        //sets the inner HTML to include the <span> tag, which adjusts text size
+                                      
     container.insertBefore(div, document.getElementById("end"));      //takes this content and puts it on the page before the "end" div
 }
      
