@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* HTML page
+-has text box for user input
+"sticky note"
+when "go" button is clicked user input moves to "sticky note"
+
+CSS
+-div, flex wrap, div inserted when "go" pressed */
+
+.container{
+background-color: darkorchid;
+display: flex;
+flex-flow: row wrap;
+}
+
+.note{
+width: 100px;
+height: 100px;
+font-size: 2vw;
+background-color: #FFFF88;
+border: 1px solid black;
+text-align: center;
+line-height: 100px;
+}
+
+</style>
+
+<body>
+<label for="sticky">
+Write your sticky note text here!
+</label>    
+
+<input type="text" id ="sticky" placeholder="Remember me!" name="sticky" ></input><br>
+
+<input type="submit" onclick="makesticky()" value="go!"></input>
+</br>
+
+<div class="container" id="container">
+
+<div id = "end">This is the end</div>
+</div>
+
+<script>
+ 
+  //for(i=0; i<2; i++)
+function makesticky(){                                                  //sets up makesticky function
+    var stickytext = document.getElementById("sticky").value;          //gets text from user input
+    let div = document.createElement("div");                    //creates <p>, sets it as variable p
+    div.className = "note";
+    let content = document.createTextNode(stickytext);              //makes a textnode of usertext as variable 'content'
+    div.appendChild(content);                                         //appendChild puts content inside of p (between p tags)
+    container.insertBefore(div, document.getElementById("end"));      //takes this content and puts it on the page before the "end" div
+}
+     
+    </script>
+</body>
+
+</html>
