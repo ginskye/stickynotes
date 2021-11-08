@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +33,13 @@ border: 1px solid black;
 display: flex;
 justify-content: center;
 align-items: center;
+margin: 2em;
+padding: 1em;
 }
 
 .note span{
-font-size: 50%;
+font-size: 100%;
+text-align: center;
 
 }
 
@@ -53,7 +57,6 @@ Write your sticky note text here!
 
 <div class="container" id="container">
 
-<div id = "end">This is the end</div>
 </div>
 
 <script>
@@ -67,7 +70,7 @@ function makesticky(){                                                  //sets u
        
     div.innerHTML+= newHTML;                                        //sets the inner HTML to include the <span> tag, which adjusts text size
                                       
-    container.insertBefore(div, document.getElementById("end"));      //takes this content and puts it on the page before the "end" div
+    container.append(div);      //takes this content and puts it on the page before the "end" div
 }
      
     </script>
